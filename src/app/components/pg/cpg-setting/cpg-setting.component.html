@@ -1,0 +1,28 @@
+<div  class="row">
+  <div  class="col-6"> id= {{id}}</div>  <div  class="col-6">  <label>Фильтр</label> <input type="text" #rowFilter (change)="filerChange()" (keyup)="filterSetting(rowFilter.value)" [(ngModel)]="filterName" /></div>
+</div>
+<div  class="row">
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+
+    <th scope="col" sortable="area"  >Параметр</th>
+    <th scope="col" sortable="population"  >Значение</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let c  of _pgSettingFiltered;   index as i ">
+    <th scope="row">   {{i+1}} </th>
+    <td>
+      {{ c.name  }}
+
+    </td>
+    <td>
+      {{ c.setting  }}
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+</div>
