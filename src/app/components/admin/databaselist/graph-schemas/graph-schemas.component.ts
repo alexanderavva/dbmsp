@@ -59,11 +59,16 @@ export class GraphSchemasComponent implements OnInit {
   changeData() {
 
     const mockData = [];
-    for (let i = 0; i < 8; i++) {
-      mockData.push("{ value:" + Math.round(Math.random() * 900 + 700)+", ");
+    var ss ="";
+    for (let i = 0; i < 7; i++) {
+     // mockData.push("{ value:" + Math.round(Math.random() * 900 + 700)+", name: 'схема "+i+"'}, ");
+      ss = ss.concat(" { value:" + Math.round(Math.random() * 900 + 700)+", name: 'схема "+i+"'}, ");
     }
-    // @ts-ignore
-    this.options.series.data=mockData;
+    ss = ss.concat(" { value:" + Math.round(Math.random() * 900 + 700)+", name: 'схема 8'}  ");
+   // mockData.push("{ value:" + Math.round(Math.random() * 900 + 700)+", name: 'схема 8'}, ");
+    console.log(ss)
+
+    this.options.series.data=ss;
   }
 
   /*
