@@ -62,22 +62,22 @@ export class GraphSchemasComponent implements OnInit {
     for (let i = 0; i < 8; i++) {
       mockData.push("{ value:" + Math.round(Math.random() * 900 + 700)+", ");
     }
+    // @ts-ignore
     this.options.series.data=mockData;
   }
 
+  /*
+    getData()
+      this.api
+        .getData()
+        .then((data) => {
+          this.mergeOption = { series: [{ data }] };
+        })
+        .catch((e) => {
 
-  getData() {
-/*
-    this.api
-      .getData()
-      .then((data) => {
-        this.mergeOption = { series: [{ data }] };
-      })
-      .catch((e) => {
-        /** Error Handler */
       })
       .then(() => {
         this.loading = false;
-      });*/
-  }
+      });
+  }*/
 }
