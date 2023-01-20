@@ -1,3 +1,13 @@
+npm install echarts -S
+npm install ngx-echarts -S
+npm install echarts-gl -S
+
+Гл чарт выдает
+npm WARN ajv-keywords@3.5.2 requires a peer of ajv@^6.9.1 but none is installed. You must install peer dependencies yourself.
+npm WARN karma-jasmine-html-reporter@1.7.0 requires a peer of jasmine-core@>=3.8 but none is installed. You must install peer dependencies yourself.
+
+
+
 # Dbmsp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.3.

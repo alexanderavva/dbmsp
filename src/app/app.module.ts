@@ -11,7 +11,8 @@ import {JwtInterceptor} from "./models/jwt.interceptor";
 import {ErrorInterceptor} from "./services/user/error.interceptor";
 import {AlertComponent} from "./services/user/alertcomponent/alert.component";
 import {DatabaseListComponent } from './components/admin/databaselist/database-list/database-list.component';
-
+import { NgxEchartsModule } from 'ngx-echarts';
+import { GraphSchemasComponent } from './components/admin/databaselist/graph-schemas/graph-schemas.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,13 +20,22 @@ import {DatabaseListComponent } from './components/admin/databaselist/database-l
     CDbmsListComponent,
     CLoginComponentComponent,
     AlertComponent,
-    DatabaseListComponent
+    DatabaseListComponent,
+    GraphSchemasComponent
   ],
   imports: [
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxEchartsModule.forRoot({
+      /**
+       * This will import all modules from echarts.
+       * If you only need custom modules,
+       * please refer to [Custom Build] section.
+       */
+      echarts: () => import('echarts')
+    }),
     BrowserModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

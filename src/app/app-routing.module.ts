@@ -5,6 +5,7 @@ import {CDbmsListComponent} from "./components/pg/cdbms-list/cdbms-list.componen
 import {CLoginComponentComponent} from "./components/admin/clogin-component/clogin-component.component";
 import {AuthGuard} from "./models/auth.guard";
 import {DatabaseListComponent} from "./components/admin/databaselist/database-list/database-list.component";
+import {GraphSchemasComponent} from "./components/admin/databaselist/graph-schemas/graph-schemas.component";
 /*import {BoardAdminComponent} from "./components/auth/board-admin/board-admin.component";
 import {BoardModeratorComponent} from "./components/auth/board-moderator/board-moderator.component";
 import {BoardUserComponent} from "./components/auth/board-user/board-user.component";
@@ -15,6 +16,7 @@ import {HomeComponent} from "./components/auth/home/home.component";*/
 
 const routes: Routes = [
   { path: 'login', component: CLoginComponentComponent },
+  { path: 'testchart', component: GraphSchemasComponent },
   { path: 'home', component:  /*CPgSettingComponent*/DatabaseListComponent,   canActivate: [AuthGuard] },
   { path: 'databaseList', component: CDbmsListComponent,   canActivate: [AuthGuard] },
   { path: 'serverDatabaseList', component: DatabaseListComponent,   canActivate: [AuthGuard] },
