@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import type { EChartsOption } from 'echarts';
 import { ThemeOption } from 'ngx-echarts';
 import {ChartDatum, CoolTheme} from './cool-theme';
 import { HttpClient } from '@angular/common/http';
-import {number} from "echarts/types/dist/echarts";
+import {ECharts, number} from "echarts/types/dist/echarts";
 import {Observable, of} from "rxjs";
 
 
@@ -17,8 +17,10 @@ interface ChartData {
   templateUrl: './graph-schemas.component.html',
   styleUrls: ['./graph-schemas.component.css']
 })
-export class GraphSchemasComponent implements OnInit {
 
+export class GraphSchemasComponent implements OnInit {
+  @ViewChild('echart') echart?:ECharts;
+ // echarts:EChartsOption
   /*public  class graphData   {
    name?:number ;
    value?: string ;
@@ -28,7 +30,7 @@ export class GraphSchemasComponent implements OnInit {
   theme: string | ThemeOption ="default" ;
     mockData:ChartDatum []= [];
   coolTheme = CoolTheme;
-   options1: EChartsOption = {
+   options: EChartsOption = {
     title: {
       left: '50%',
       text: 'Размер схем базы данных',
@@ -52,30 +54,31 @@ export class GraphSchemasComponent implements OnInit {
         type: 'pie',
         radius: [30, 110],
         roseType: 'area',
-        data: this.mockData/*[
-          { value: 10, name: 'схема 1' },
-          { value: 5, name: 'схема 2' },
-          { value: 15, name: 'схема 3' },
-          { value: 25, name: 'схема 4' },
-          { value: 20, name: 'схема 5' },
-          { value: 35, name: 'схема 6' },
-          { value: 30, name: 'схема 7' },
-          { value: 40, name: 'схема 8' }
-        ]*/
+        data: this.mockData /* [
+       { value: 10, name: 'схема 1' },
+         { value: 5, name: 'схема 2' },
+         { value: 15, name: 'схема 3' },
+         { value: 25, name: 'схема 4' },
+         { value: 20, name: 'схема 5' },
+         { value: 35, name: 'схема 6' },
+         { value: 30, name: 'схема 7' },
+         { value: 40, name: 'схема 8' }
+       ]*/
       }
     ]
   };
-  options : Observable<EChartsOption> = of(this.options1);
+  mergeOption: any;
+  //options : Observable<EChartsOption> = of(this.options1);
 
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.mockData.splice(0,this.mockData.length);
+  /*  this.mockData.splice(0,this.mockData.length);
     let c = new ChartDatum("инит схема 1",10);this.mockData.push(c);
     c = new ChartDatum("схема 2",20);this.mockData.push(c);
     c = new ChartDatum("схема 3",30);this.mockData.push(c);
-    this.options = of(this.options1)
+    this.options = of(this.options1)*/
   }
 
   changeData() {
@@ -94,8 +97,12 @@ export class GraphSchemasComponent implements OnInit {
  let c = new ChartDatum("схема 1",10);this.mockData.push(c);
     c = new ChartDatum("схема 2",20);this.mockData.push(c);
     c = new ChartDatum("схема 3",30);this.mockData.push(c);
+    // @ts-ignore
+    //this.echart.setOption(this.options)  ;
+
+    this.mergeOption={ series: [{value: 40, name: 'схема 888888' }] };
 console.log(this.mockData)
-    this.options = of(this.options1)
+    /* this.options = this.mockDataof(this.options1)*/
 
 
 

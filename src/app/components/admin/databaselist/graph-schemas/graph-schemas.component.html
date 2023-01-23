@@ -6,4 +6,4 @@
   <button (click)="theme=coolTheme" nz-button nzType="default">cool(theme object)</button>
   <button (click)="changeData()" >Изменение данных</button>
 </div>
-<div echarts [options]="options | async" [theme]="theme" class="demo-chart"></div>
+<div echarts #echart [options]="options " [merge]="mergeOption"  [theme]="theme"   class="demo-chart"></div>
