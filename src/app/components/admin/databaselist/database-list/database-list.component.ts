@@ -31,14 +31,14 @@ export class DatabaseListComponent implements OnInit {
     //   this.dblistService.getDatabases().subscribe(res =>{
     //   this.databaseList=res;
     // });
-    this.dblistService.getDatabases().pipe(first()).subscribe( res =>{
-      this.databaseFilteredList=res;
-      this.databaseList=res;
+    this.dblistService.getDatabases().pipe(first()).subscribe(res => {
+      this.databaseFilteredList = res;
+      this.databaseList = res;
 
-        } ) ;
+    });
 
-    this.databaseFilteredListSubj.subscribe( x => {
-      this.databaseFilteredList=x;
+    this.databaseFilteredListSubj.subscribe(x => {
+      this.databaseFilteredList = x;
       console.log("databaseFilteredListSubj. works", x)
     });
 
@@ -62,8 +62,12 @@ export class DatabaseListComponent implements OnInit {
       const items = [...this.databaseFilteredList  ];
      // this.databaseFilteredList
       //const data
+
+    console.log(" sort sortingColumn=", this.sortingColumn," order = ",this.sortingOrder)
+    console.log(" before=", this.databaseFilteredList)
     // @ts-ignore
     this.databaseFilteredList=   _dash.orderBy(/*items*/ this.databaseFilteredList,[this.sortingColumn],[ this.sortingOrder])
+    console.log(" after=", this.databaseFilteredList)
       this.databaseFilteredListSubj.next(this.databaseFilteredList);
     console.log("_dash.orderBy data ",this.databaseFilteredList)
     }

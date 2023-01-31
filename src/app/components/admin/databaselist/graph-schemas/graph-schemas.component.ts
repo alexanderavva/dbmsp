@@ -70,8 +70,19 @@ export class GraphSchemasComponent implements OnInit {
   mergeOption: any;
   //options : Observable<EChartsOption> = of(this.options1);
 
-
+  echartsInstance?:ECharts
   constructor(private http: HttpClient) { }
+
+
+  resizeChart() {
+    if (this.echartsInstance) {
+      this.echartsInstance.setOption(this.options)
+      this.echartsInstance.resize();
+      console.log("resized ")
+
+    }
+  }
+
 
   ngOnInit(): void {
   /*  this.mockData.splice(0,this.mockData.length);
@@ -100,10 +111,10 @@ export class GraphSchemasComponent implements OnInit {
     // @ts-ignore
     //this.echart.setOption(this.options)  ;
 
-    this.mergeOption={ series: [{value: 40, name: 'схема 888888' }] };
+    //this.mergeOption={ series: [{value: 40, name: 'схема 888888' }] };
 console.log(this.mockData)
     /* this.options = this.mockDataof(this.options1)*/
-
+    this.resizeChart();
 
 
    // this.options.series.data=ss;
@@ -123,4 +134,8 @@ console.log(this.mockData)
         this.loading = false;
       });
   }*/
+  onChartInit($event: any) {
+    console.log("onChartInit ",$event)
+    this.echartsInstance = $event;
+  }
 }

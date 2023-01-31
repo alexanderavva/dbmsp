@@ -13,6 +13,8 @@ import {AlertComponent} from "./services/user/alertcomponent/alert.component";
 import {DatabaseListComponent } from './components/admin/databaselist/database-list/database-list.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { GraphSchemasComponent } from './components/admin/databaselist/graph-schemas/graph-schemas.component';
+import { UsereditComponent } from './components/admin/users/useredit/useredit.component';
+import { UserlistComponent } from './components/admin/users/userlist/userlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,9 @@ import { GraphSchemasComponent } from './components/admin/databaselist/graph-sch
     CLoginComponentComponent,
     AlertComponent,
     DatabaseListComponent,
-    GraphSchemasComponent
+    GraphSchemasComponent,
+    UsereditComponent,
+    UserlistComponent
   ],
   imports: [
     HttpClientModule,
