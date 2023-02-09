@@ -13,6 +13,9 @@
       <li class="nav-item" *ngIf="user">
         <a href="/serverDatabaseList" class="nav-link" routerLink="serverDatabaseList">Серверы </a>
       </li>
+      <li class="nav-item" *ngIf="user">
+        <a href="/userlist" class="nav-link" routerLink="UserlistComponent">Пользователи </a>
+      </li>
       <li class="nav-item"  *ngIf="user">
       <a href="#" class="nav-item nav-link"  (click)="logout()">Logout</a>
       </li>

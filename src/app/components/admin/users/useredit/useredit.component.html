@@ -1,0 +1,42 @@
+
+<div class = "row">
+
+  <div class = "row">
+  <h3  *ngIf="id;else cre_userTitle">Редактирование пользователя</h3>
+
+  <ng-template #cre_userTitle><h3>Создать пользователя</h3></ng-template>
+</div>
+
+
+
+  <div class="form-group">
+    <label for="inputlogin">Логин </label>
+    <input type="text" class="form-control" [(ngModel)]="login" id="inputlogin" aria-describedby="inputloginlHelp">
+    <small id="inputloginlHelp" class="form-text text-muted">Логин.</small>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail">Email </label>
+    <input type="email" [(ngModel)]="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">Почта.</small>
+  </div>
+  <div class="form-group">
+    <label for="userNameInputPassword1">Имя</label>
+    <input type="text" [(ngModel)]="userName" class="form-control" id="userNameInputPassword1">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" [(ngModel)]="isActive"  id="isActiveCheck1">
+    <label class="form-check-label" for="isActiveCheck1">Is Active</label>
+  </div>
+
+
+
+
+<button (click)="saveUser()" *ngIf="id;else cre_user">Сохранить {{id}} {{login}} {{email}}</button>
+
+  <ng-template #cre_user><button (click)=creUser() >Создать пользователя</button></ng-template>
+
+
+
+
+</div>
+

@@ -16,6 +16,9 @@ import { GraphSchemasComponent } from './components/admin/databaselist/graph-sch
 import { UsereditComponent } from './components/admin/users/useredit/useredit.component';
 import { UserlistComponent } from './components/admin/users/userlist/userlist.component';
 import {SortDirective} from "./directive/sort.directive";
+import { ReportUsersSuscrioptionComponent } from './components/admin/users/subscription/report-users-suscrioption/report-users-suscrioption.component';
+import { ReportEmailCreEditComponent } from './components/admin/users/subscription/report-email-cre-edit/report-email-cre-edit.component';
+import {NgSelectModule} from "@ng-select/ng-select";
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,12 +30,15 @@ import {SortDirective} from "./directive/sort.directive";
     GraphSchemasComponent,
     UsereditComponent,
     UserlistComponent,
-    SortDirective
+    SortDirective,
+    ReportUsersSuscrioptionComponent,
+    ReportEmailCreEditComponent
   ],
   imports: [
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    NgSelectModule,
     ReactiveFormsModule,
     NgxEchartsModule.forRoot({
       /**

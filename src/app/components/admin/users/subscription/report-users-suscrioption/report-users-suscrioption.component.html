@@ -1,0 +1,72 @@
+<div  class="row">
+  <div  class="col-6"> <p><a [routerLink]="'/usercreedit'" >  Создать</a></p></div>  <div  class="col-6">    <label>Фильтр</label>  </div>
+</div>
+<div  class="row">
+  <table class="table table-striped sortable">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+
+      <th scope="col" [appSort]="userSubscriptions" data-order="desc" data-name="login">Логин</th>
+      <th scope="col" [appSort]="userSubscriptions" data-order="desc" data-name="userName">Имя</th>
+      <th scope="col" [appSort]="userSubscriptions" data-order="desc" data-name="serverName">serverName</th>
+      <th scope="col" [appSort]="userSubscriptions" data-order="desc" data-name="clusterName">clusterName</th>
+      <th scope="col" [appSort]="userSubscriptions" data-order="desc" data-name="dbmsReportTemplateName">dbmsReportTemplateName</th>
+      <th scope="col" [appSort]="userSubscriptions" data-order="desc" data-name="dbmsReportTemplateCode">dbmsReportTemplateCode</th>
+      <th scope="col" [appSort]="userSubscriptions" data-order="desc" data-name="windowInterval">windowInterval</th>
+      <th scope="col" [appSort]="userSubscriptions" data-order="desc" data-name="timeToSendHour">timeToSendHour</th>
+
+
+      <th scope="col" [appSort]="userSubscriptions" data-order="desc" data-name="timeToSendMinute">timeToSendMinute</th>
+      <th scope="col" [appSort]="userSubscriptions" data-order="desc" data-name="isActive">isActive</th>
+      <th scope="col" [appSort]="userSubscriptions" data-order="desc" data-name="lastSend">lastSend</th>
+
+      <th scope="col" [appSort]="userSubscriptions" data-order="desc" data-name="userEmail">Почта</th>
+
+    </tr>
+    </thead>
+
+    <!--
+
+      : string;
+  : string;
+  reportId: number;
+  userId: number;
+  enabled: number;
+  : Date
+
+
+  windowInterval: number;
+  timeToSendHour: number;
+
+  timeToSendMinute: number;
+  userInfoId: number;
+  userName: string;
+  userEmail: string;
+  isActive: number;
+  login: string;
+  dbmsReportTemplateIs: number;
+  dbmsReportTemplateName: string;
+  dbmsReportTemplateCode: string;
+    -->
+    <tbody>
+    <tr *ngFor="let c  of userSubscriptions;   index as i ">
+      <th scope="row">   {{i+1}} </th>
+      <td> <a  [routerLink]="['/usercreedit',  c.id  ]"   [queryParams]="{'id':c.id, 'test': 200}"> {{ c. login }}</a>
+      <td>   {{ c.userName    }} </td>
+      <td>   {{ c.serverName    }} </td>
+      <td>   {{ c.clusterName    }} </td>
+      <td> {{ c.dbmsReportTemplateName   }}  </td>
+
+      <td> {{ c.dbmsReportTemplateCode   }}  </td>
+      <td> {{ c.windowInterval   }}  </td>
+      <td> {{ c.timeToSendHour   }}  </td>
+      <td> {{ c.timeToSendMinute   }}  </td>
+      <td> {{ c.isActive==0 ?'Да':'Нет'   }}  </td>
+      <td> {{  c.lastSend | date: 'dd/MM/yyyy'   }}  </td>
+      <td> {{ c.userEmail   }}  </td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>

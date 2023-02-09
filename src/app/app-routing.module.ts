@@ -8,6 +8,8 @@ import {DatabaseListComponent} from "./components/admin/databaselist/database-li
 import {GraphSchemasComponent} from "./components/admin/databaselist/graph-schemas/graph-schemas.component";
 import {UsereditComponent} from "./components/admin/users/useredit/useredit.component";
 import {UserlistComponent} from "./components/admin/users/userlist/userlist.component";
+import {ReportUsersSuscrioptionComponent} from "./components/admin/users/subscription/report-users-suscrioption/report-users-suscrioption.component";
+import {ReportEmailCreEditComponent} from "./components/admin/users/subscription/report-email-cre-edit/report-email-cre-edit.component";
 /*import {BoardAdminComponent} from "./components/auth/board-admin/board-admin.component";
 import {BoardModeratorComponent} from "./components/auth/board-moderator/board-moderator.component";
 import {BoardUserComponent} from "./components/auth/board-user/board-user.component";
@@ -22,6 +24,8 @@ const routes: Routes = [
   { path: 'usercreedit/:id', component: UsereditComponent },
   { path: 'usercreedit', component: UsereditComponent },
   { path: 'userlist', component: UserlistComponent },
+  { path: 'emaildbms', component: ReportUsersSuscrioptionComponent },
+  { path: 'emaildbmscre', component: ReportEmailCreEditComponent },
   { path: 'home', component:  /*CPgSettingComponent*/DatabaseListComponent,   canActivate: [AuthGuard] },
   { path: 'databaseList', component: CDbmsListComponent,   canActivate: [AuthGuard] },
   { path: 'serverDatabaseList', component: DatabaseListComponent,   canActivate: [AuthGuard] },

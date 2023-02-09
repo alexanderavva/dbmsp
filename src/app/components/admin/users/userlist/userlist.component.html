@@ -1,0 +1,40 @@
+<div  class="row">
+  <div  class="col-6"> <p><a [routerLink]="'/usercreedit'" >  Создать</a></p></div>  <div  class="col-6">    <label>Фильтр</label>  </div>
+</div>
+<div  class="row">
+  <table class="table table-striped sortable">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+
+      <th scope="col" [appSort]="users" data-order="desc" data-name="login">Логин</th>
+
+      <th scope="col" [appSort]="users" data-order="desc" data-name="userName">Имя</th>
+
+
+      <th scope="col" [appSort]="users" data-order="desc" data-name="userEmail">Почта</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let c  of users;   index as i ">
+      <th scope="row">   {{i+1}} </th>
+      <td>
+        <a  [routerLink]="['/usercreedit',  c.id  ]"   [queryParams]="{'id':c.id, 'test': 200}"> {{ c. login }}</a>
+
+      <td>
+        {{ c.userName    }}
+
+      </td>
+      <td>
+        {{ c.userEmail   }}
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+

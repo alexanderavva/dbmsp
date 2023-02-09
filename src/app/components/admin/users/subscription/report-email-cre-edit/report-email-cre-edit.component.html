@@ -1,0 +1,57 @@
+
+<div class = "row">
+
+  <div class = "row">
+    <h3  *ngIf="id;else cre_userTitle">Редактирование подписки</h3>
+
+    <ng-template #cre_userTitle><h3>Создать подписку</h3></ng-template>
+  </div>
+
+
+  <ng-select [(ngModel)]="selectedDbmsServer">
+    <ng-option *ngFor="let srv of serverlist" [value]="srv.id" >{{srv.server_name}}</ng-option>
+  </ng-select>
+
+  <!--Using items input-->
+  <ng-select [items]="serverlist"
+             bindLabel="server_name"
+             bindValue="id"
+             placeholder="Выберите сервер"
+             [compareWith]="compareWith"
+             [(ngModel)]="selectedDbmsServer">
+  </ng-select>
+  <label *ngIf="selectedDbmsServer"> <h1>{{selectedDbmsServer.server_name}}</h1></label>
+
+
+
+  <div class="form-group">
+    <label for="inputlogin">Сервер </label>
+    <input type="text" class="form-control" [(ngModel)]="server_name" id="inputlogin" aria-describedby="inputloginlHelp">
+    <small id="inputloginlHelp" class="form-text text-muted">Логин.</small>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail">Кластер Сервера </label>
+    <input type="email" [(ngModel)]="cluster_name" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">Почта.</small>
+  </div>
+  <div class="form-group">
+    <label for="userNameInputPassword1">Имя</label>
+    <input type="text" [(ngModel)]="id" class="form-control" id="userNameInputPassword1">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" [(ngModel)]="id"  id="isActiveCheck1">
+    <label class="form-check-label" for="isActiveCheck1">Is Active</label>
+  </div>
+
+
+
+
+  <button (click)="saveSuscription()" *ngIf="id;else cre_user">Сохранить {{id}} </button>
+
+  <ng-template #cre_user><button (click)=creSuscription() >Создать подписку для пользователя</button></ng-template>
+
+
+
+
+</div>
+
